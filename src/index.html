@@ -1,13 +1,36 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Portfolio</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root></app-root>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>Portfolio</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  </head>
+  <body>
+    <app-root></app-root>
+
+    <!-- Calendly badge widget begin -->
+    <link
+      href="https://assets.calendly.com/assets/external/widget.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://assets.calendly.com/assets/external/widget.js"
+      type="text/javascript"
+      async
+    ></script>
+    <script type="text/javascript">
+      window.onload = function () {
+        Calendly.initBadgeWidget({
+          url: "https://calendly.com/markgarcia-girlcodeapps?background_color=212121&text_color=efefef&primary_color=f6a0fd",
+          text: "Schedule time with me",
+          color: "#eeb0e3",
+          textColor: "#333333",
+          branding: true,
+        });
+      };
+    </script>
+    <!-- Calendly badge widget end -->
+  </body>
 </html>
