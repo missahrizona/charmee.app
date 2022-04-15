@@ -7,23 +7,6 @@ import { GlobalsService } from './services/globals.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   constructor(private globals: GlobalsService) {}
-
-  welcomeDone: boolean = false;
-
-  ngOnInit(): void {
-    (async () => {
-      // Do something before delay
-      console.log('before delay');
-
-      await this.delay(3000);
-
-      this.welcomeDone = true;
-    })();
-  }
-
-  async delay(ms: number) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-  }
 }
