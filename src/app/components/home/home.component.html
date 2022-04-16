@@ -1,10 +1,30 @@
 <div class="flex">
   <div class="phone-wrap">
-    <div class="phone-frame">
-      <iframe
-        class="iframe-phone-viewport"
-        src="https://ideacollab.vercel.app"
-      ></iframe>
+    <div class="phone-container">
+      <div class="phone-frame">
+        <div class="gears-container gears-d3-canvas-p1"></div>
+        <div class="logos-container">
+          <div
+            *ngFor="let framework of frameworks"
+            (click)="openLinkNewTab(framework.url)"
+            class="logo {{ framework.className }}"
+          ></div>
+        </div>
+        <iframe
+          class="iframe-phone-viewport"
+          [class.iframe-phone-viewport-animate]="animateP1"
+          src="https://ideacollab.vercel.app"
+        ></iframe>
+      </div>
+      <br />
+      <button
+        (click)="animateP1 = !animateP1"
+        pButton
+        pRipple
+        type="button"
+        [label]="animateP1 ? 'Close' : 'Frameworks'"
+        class="p-button-raised p-button-info"
+      ></button>
     </div>
   </div>
   <div class="laptop-wrap">
@@ -19,11 +39,31 @@
     </div>
   </div>
   <div class="phone-wrap purple">
-    <div class="phone-frame">
-      <iframe
-        class="iframe-phone-viewport"
-        src="https://fam-ily.vercel.app/"
-      ></iframe>
+    <div class="phone-container">
+      <div class="phone-frame">
+        <div class="gears-container gears-d3-canvas-p2"></div>
+        <div class="logos-container">
+          <div
+            *ngFor="let framework of frameworks"
+            (click)="openLinkNewTab(framework.url)"
+            class="logo {{ framework.className }}"
+          ></div>
+        </div>
+        <iframe
+          class="iframe-phone-viewport"
+          [class.iframe-phone-viewport-animate]="animateP2"
+          src="https://fam-ily.vercel.app"
+        ></iframe>
+      </div>
+      <br />
+      <button
+        (click)="animateP2 = !animateP2"
+        pButton
+        pRipple
+        type="button"
+        [label]="animateP2 ? 'Close' : 'Frameworks'"
+        class="p-button-raised p-button-info"
+      ></button>
     </div>
   </div>
 </div>

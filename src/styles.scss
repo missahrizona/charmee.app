@@ -27,3 +27,24 @@ body {
   background-image: linear-gradient(180deg, #d0368a 0%, #708ad4 99%);
   box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
 }
+
+.gears-container {
+  max-width: 700px;
+  margin: 0 auto;
+      width: 100%;
+    height: 100%;
+}
+
+.gears-d3-canvas svg {
+  max-width: 300px !important;
+  max-height: 700px !important;
+  width: 100%;
+  height: 100%;
+
+}
+
+.style-0 path { fill: #FF9900; }
+.style-1 path { fill: #424242; }
+.style-2 path { fill: #E9E9E9; }
+.style-3 path { fill: #BCBCBC; }
+.style-4 path { fill: #3299BB; }

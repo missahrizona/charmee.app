@@ -7,9 +7,12 @@ import { AppComponent } from './app.component';
 import { GlobalsService } from './services/globals.service';
 import { HomeComponent } from './components/home/home.component';
 
+import { ButtonModule } from 'primeng/button';
+import { RippleModule } from 'primeng/ripple';
+
 @NgModule({
   declarations: [AppComponent, HomeComponent],
-  imports: [BrowserModule, AppRoutingModule, LayoutModule],
+  imports: [BrowserModule, AppRoutingModule, LayoutModule, ButtonModule],
   bootstrap: [AppComponent],
   providers: [GlobalsService],
 })
