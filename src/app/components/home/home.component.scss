@@ -91,8 +91,16 @@
   align-items: center;
   padding: 10px 10% 10px 0;
   box-sizing: border-box;
+  //   box-shadow: 0px 4px 5px 1px #343434;
+}
 
-  box-shadow: 0px 4px 5px 1px #343434;
+.pre-slide-in {
+  transform: translateX(100%);
+  transition: transform 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.pre-slide-in-delay {
+  transform: translateX(100%);
+  transition: transform 0.75s cubic-bezier(0.4, 0, 0.2, 1) 200ms;
 }
 
 .laptop-wrap {
@@ -106,7 +114,9 @@
   align-items: center;
   box-sizing: border-box !important;
   overflow-x: auto;
-  box-shadow: 0px 4px 5px 1px #343434;
+  //   box-shadow: 0px 4px 5px 1px #343434;
+  transform: translateX(-100%);
+  transition: transform 0.75s cubic-bezier(0.4, 0, 0.2, 1) 200ms;
 }
 
 .phone-container {
@@ -262,4 +272,8 @@
   opacity: 0.75;
   order: -1;
   font-family: inherit;
+}
+
+.slide-in {
+  transform: translateX(0);
 }

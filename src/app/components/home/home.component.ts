@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import main from './gears';
 
 @Component({
@@ -6,7 +6,7 @@ import main from './gears';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
   constructor() {
     this.frameworks = [
       { className: 'angular', url: 'https://angular.io' },
@@ -17,24 +17,29 @@ export class HomeComponent implements OnInit {
     this.welcomeDone = false;
     this.animateP1 = false;
     this.animateP2 = false;
+    this.init = false;
   }
 
   welcomeDone: boolean;
   animateP1: boolean;
   animateP2: boolean;
   frameworks: any[];
+  init: boolean;
 
   ngOnInit(): void {
     main('.gears-d3-canvas-p1');
     main('.gears-d3-canvas-p2');
     (async () => {
-      // Do something before delay
-      console.log('before delay');
-
       await this.delay(3000);
 
       this.welcomeDone = true;
     })();
+  }
+
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.init = true;
+    });
   }
 
   openLinkNewTab(url: string) {
