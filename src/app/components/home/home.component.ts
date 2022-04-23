@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import main from './gears';
+import GearSet from './gears';
 
 @Component({
   selector: 'app-home',
@@ -25,10 +25,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
   animateP2: boolean;
   frameworks: any[];
   init: boolean;
+  gearSet1?: GearSet;
+  gearSet2?: GearSet;
 
   ngOnInit(): void {
-    main('.gears-d3-canvas-p1');
-    main('.gears-d3-canvas-p2');
+    this.gearSet1 = new GearSet('.gears-d3-canvas-p1');
+    this.gearSet2 = new GearSet('.gears-d3-canvas-p2');
     (async () => {
       await this.delay(3000);
 

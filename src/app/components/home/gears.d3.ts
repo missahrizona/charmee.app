@@ -7,10 +7,10 @@ import * as d3 from 'd3';
 
 //@ts-ignore
 
-const Gear: any = {
-  nextGearId: 0,
+export default class Gear {
+  nextGearId = 0;
 
-  create: function (
+  create(
     svg: {
       append: (arg0: string) => {
         (): any;
@@ -78,10 +78,10 @@ const Gear: any = {
       profileSlope: options.profileSlope || 0.5,
       holeRadius: options.holeRadius || 5,
       dragEvent: 'dragend',
-      id: Gear.nextGearId,
+      id: this.nextGearId,
     };
 
-    Gear.nextGearId += 1;
+    this.nextGearId += 1;
 
     datum.rootRadius = datum.radius - datum.dedendum;
     datum.outsideRadius = datum.radius + datum.addendum;
@@ -97,11 +97,13 @@ const Gear: any = {
       .datum(datum);
 
     gear.on('mouseover', () => {
+      // @ts-ignore
       var $this = d3.select(this);
       $this.attr('transform', $this.attr('transform') + ' scale(1.06)');
     });
 
     gear.on('mouseout', () => {
+      // @ts-ignore
       var $this = d3.select(this);
       $this.attr(
         'transform',
@@ -109,24 +111,24 @@ const Gear: any = {
       );
     });
 
-    gear.append('path').attr('class', 'gear-path').attr('d', Gear.path);
+    gear.append('path').attr('class', 'gear-path').attr('d', this.path);
 
     return gear;
-  },
+  }
 
-  setPower: function (
+  setPower(
     gear: { datum: () => { (): any; new (): any; power: any } },
     power: any
   ) {
     gear.datum().power = power;
-  },
+  }
 
-  randomArrange: function (
+  randomArrange(
     gears: any,
     xOffset: number,
     yOffset: number,
-    angleMin: number,
-    angleMax: number
+    angleMin?: number,
+    angleMax?: number
   ) {
     var xx = xOffset || 0,
       yy = yOffset || 0,
@@ -145,8 +147,8 @@ const Gear: any = {
     angleMax = angleMax || 1.2;
 
     // first clone and shuffle all the gears
-    unplacedGears = Gear.Utility.arrayClone(gears);
-    Gear.Utility.arrayShuffle(unplacedGears);
+    unplacedGears = this.Utility.arrayClone(gears);
+    this.Utility.arrayShuffle(unplacedGears);
 
     // place the first gear
     unplacedGears[0].datum().x = xx;
@@ -180,10 +182,10 @@ const Gear: any = {
 
           nextGear.x = prevGear.x + Math.cos(angle + k) * distance;
           nextGear.y = prevGear.y + Math.sin(angle + k) * distance;
-          collision = Gear.anyGearCollides(nextGear, placedGears, 10);
+          collision = this.anyGearCollides(nextGear, placedGears, 10);
 
           if (collision <= 1) {
-            Gear.mesh(prevGear, nextGear);
+            this.mesh(prevGear, nextGear);
             placedGears.push(unplacedGears[i]);
             placed = true;
           }
@@ -197,9 +199,9 @@ const Gear: any = {
         nextGear.y = -100;
       }
     }
-  },
+  }
 
-  dragBehaviour: function (gears: any, svg: any) {
+  dragBehaviour(gears: any, svg: any) {
     // @ts-ignore
     return (
       d3
@@ -210,6 +212,7 @@ const Gear: any = {
         })
         .on('dragstart', (d: { dragEvent: string }, i: any) => {
           d.dragEvent = 'dragstart';
+          // @ts-ignore
           d3.select(this).classed('dragging', true);
           d3.select('body').classed('dragging', true);
         })
@@ -220,7 +223,7 @@ const Gear: any = {
             d: { x: number; y: number; radius: number; dragEvent: string },
             i: any
           ) => {
-            var collision = false,
+            var collision: any = false,
               oldX = d.x,
               oldY = d.y;
 
@@ -230,14 +233,16 @@ const Gear: any = {
             d.y = Math.max(d.radius, d.y);
 
             d.dragEvent = 'drag';
-            collision = Gear.anyGearCollides(d3.select(this).datum(), gears);
+            // @ts-ignore
+            collision = this.anyGearCollides(d3.select(this).datum(), gears);
 
             if (!collision) {
+              // @ts-ignore
               d3.select(this).attr('transform', (d: any, i: any) => {
                 return 'translate(' + [d.x, d.y] + ')';
               });
 
-              Gear.updateGears(gears);
+              this.updateGears(gears);
             } else {
               d.x = oldX;
               d.y = oldY;
@@ -246,31 +251,28 @@ const Gear: any = {
         )
         .on('dragend', (d: { dragEvent: string }, i: any) => {
           d.dragEvent = 'dragend';
+          // @ts-ignore
           d3.select(this).classed('dragging', false);
           d3.select('body').classed('dragging', false);
-          Gear.updateGears(gears);
+          this.updateGears(gears);
         })
     );
-  },
+  }
 
-  anyGearCollides: function (
-    gearA: any,
-    gears: string | any[],
-    tolerance: number
-  ) {
+  anyGearCollides(gearA: any, gears: string | any[], tolerance?: number) {
     var collisions = 0;
     tolerance = tolerance || 0;
 
     for (var i = 0; i < gears.length; i++) {
       var gearB = gears[i];
 
-      if (Gear.gearCollides(gearA, gearB.datum(), tolerance)) collisions += 1;
+      if (this.gearCollides(gearA, gearB.datum(), tolerance)) collisions += 1;
     }
 
     return collisions;
-  },
+  }
 
-  gearCollides: function (
+  gearCollides(
     gearA: { radius: any; addendum: number; id: any; x: number; y: number },
     gearB: { radius: any; addendum: number; id: any; x: number; y: number },
     tolerance: number
@@ -290,15 +292,15 @@ const Gear: any = {
       return false;
 
     if (
-      Gear.Utility.distanceSquared(gearA.x, gearA.y, gearB.x, gearB.y) <
+      this.Utility.distanceSquared(gearA.x, gearA.y, gearB.x, gearB.y) <
       threshold * threshold
     )
       return true;
 
     return false;
-  },
+  }
 
-  propagateGears: function (
+  propagateGears(
     gear: { connected: any; id: string | number; speed: number; teeth: number },
     visited: { [x: string]: boolean }
   ) {
@@ -317,12 +319,12 @@ const Gear: any = {
 
         nextGear.speed -= gear.speed * (gear.teeth / nextGear.teeth);
 
-        Gear.propagateGears(nextGear, visited);
+        this.propagateGears(nextGear, visited);
       }
     }
-  },
+  }
 
-  updateGears: function (gears: string | any[]) {
+  updateGears(gears: string | any[]) {
     var gearA, gearB, datum;
 
     for (var i = 0; i < gears.length; i += 1) {
@@ -338,7 +340,7 @@ const Gear: any = {
 
         var datumA = gearA.datum(),
           datumB = gearB.datum(),
-          collides = Gear.gearCollides(
+          collides = this.gearCollides(
             datumA,
             datumB,
             Math.max(datumA.addendum, +datumB.addendum)
@@ -357,13 +359,13 @@ const Gear: any = {
       if (!gearA.classed('dragging')) continue;
 
       var nextGear = gearA.datum(),
-        connectedKeys = Gear.Utility.keys(nextGear.connected);
+        connectedKeys = this.Utility.keys(nextGear.connected);
 
       if (connectedKeys.length === 0) continue;
 
       var gear = nextGear.connected[connectedKeys[0]];
 
-      Gear.mesh(gear, nextGear);
+      this.mesh(gear, nextGear);
     }
 
     var visited = {};
@@ -372,7 +374,7 @@ const Gear: any = {
       datum = gears[i].datum();
 
       if (Math.abs(datum.power) > 0) {
-        Gear.propagateGears(datum, visited);
+        this.propagateGears(datum, visited);
         gears[i].classed('powered', true);
       } else {
         gears[i].classed('powered', false);
@@ -387,9 +389,9 @@ const Gear: any = {
         gears[i].classed('moving', false);
       }
     }
-  },
+  }
 
-  mesh: function (
+  mesh(
     gear: { x: any; y: any; radius: number; angle: number },
     nextGear: {
       x: any;
@@ -401,7 +403,7 @@ const Gear: any = {
       angle: any;
     }
   ) {
-    var theta = Gear.Utility.angle(gear.x, gear.y, nextGear.x, nextGear.y),
+    var theta = this.Utility.angle(gear.x, gear.y, nextGear.x, nextGear.y),
       pitch =
         nextGear.circularPitch +
         nextGear.slopeAngle * 2 +
@@ -412,9 +414,9 @@ const Gear: any = {
       theta +
       theta * radiusRatio +
       pitch * 0.5;
-  },
+  }
 
-  path: function (options: {
+  path(options: {
     addendum: any;
     dedendum: any;
     thickness: any;
@@ -513,50 +515,48 @@ const Gear: any = {
     );
 
     return path.join('');
-  },
-};
+  }
 
-Gear.Utility = {
-  keys: function (object: any) {
-    if (Object.keys) return Object.keys(object);
+  Utility = {
+    keys: function (object: any) {
+      if (Object.keys) return Object.keys(object);
 
-    var keys = [];
-    for (var key in object) {
-      if (Object.prototype.hasOwnProperty.call(object, key)) {
-        keys.push(key);
+      var keys = [];
+      for (var key in object) {
+        if (Object.prototype.hasOwnProperty.call(object, key)) {
+          keys.push(key);
+        }
       }
-    }
-    return keys;
-  },
+      return keys;
+    },
 
-  distanceSquared: function (x1: number, y1: number, x2: number, y2: number) {
-    var xs = x2 - x1,
-      ys = y2 - y1;
-    return xs * xs + ys * ys;
-  },
+    distanceSquared: function (x1: number, y1: number, x2: number, y2: number) {
+      var xs = x2 - x1,
+        ys = y2 - y1;
+      return xs * xs + ys * ys;
+    },
 
-  angle: function (x1: number, y1: number, x2: number, y2: number) {
-    var angle = Math.atan2(y2 - y1, x2 - x1);
-    return angle > 0 ? angle : 2 * Math.PI + angle;
-  },
+    angle: function (x1: number, y1: number, x2: number, y2: number) {
+      var angle = Math.atan2(y2 - y1, x2 - x1);
+      return angle > 0 ? angle : 2 * Math.PI + angle;
+    },
 
-  sign: function (x: number) {
-    return x < 0 ? -1 : 1;
-  },
+    sign: function (x: number) {
+      return x < 0 ? -1 : 1;
+    },
 
-  arrayShuffle: function (array: any[]) {
-    for (var i = array.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
-      var temp = array[i];
-      array[i] = array[j];
-      array[j] = temp;
-    }
-    return array;
-  },
+    arrayShuffle: function (array: any) {
+      for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+      }
+      return array;
+    },
 
-  arrayClone: function (array: string | any[]) {
-    return array.slice(0);
-  },
-};
-
-export default Gear;
+    arrayClone: function (array: string | any[]) {
+      return array.slice(0);
+    },
+  };
+}
