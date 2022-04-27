@@ -17,20 +17,21 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.welcomeDone = false;
     this.animateP1 = false;
     this.animateP2 = false;
+    this.animateP3 = false;
     this.init = false;
   }
 
   welcomeDone: boolean;
   animateP1: boolean;
   animateP2: boolean;
+  animateP3: boolean;
   frameworks: any[];
   init: boolean;
   gearSet1?: GearSet;
   gearSet2?: GearSet;
+  gearSet3?: GearSet;
 
   ngOnInit(): void {
-    this.gearSet1 = new GearSet('.gears-d3-canvas-p1');
-    this.gearSet2 = new GearSet('.gears-d3-canvas-p2');
     (async () => {
       await this.delay(3000);
 
@@ -42,6 +43,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       this.init = true;
     });
+    this.gearSet1 = new GearSet('.gears-d3-canvas-p1');
+    this.gearSet2 = new GearSet('.gears-d3-canvas-p2');
+    this.gearSet3 = new GearSet('.gears-d3-canvas-p3');
   }
 
   openLinkNewTab(url: string) {

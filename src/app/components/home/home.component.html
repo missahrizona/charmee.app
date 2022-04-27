@@ -31,6 +31,7 @@
       ></button>
     </div>
   </div>
+  <!-- OPHTHALMOS -->
   <div class="laptop-wrap pre-slide-in-delay" [ngClass]="{ 'slide-in': init }">
     <div class="laptop-frame">
       <div class="laptop-display">
@@ -50,9 +51,11 @@
       </div>
     </div>
   </div>
+
+  <!-- FAMILY APP -->
   <div class="phone-wrap pre-slide-in-delay" [ngClass]="{ 'slide-in': init }">
     <div class="header-container">
-      <div class="header-text">Idea Collab - iOS</div>
+      <div class="header-text">Fam-ily</div>
       <div class="subheader-text">Angular, Ionic Native, iOS, Android</div>
     </div>
     <div class="phone-container">
@@ -82,8 +85,77 @@
       ></button>
     </div>
   </div>
+
+  <!-- IDEA COLLAB IONIC -->
+  <!-- <div class="phone-wrap pre-slide-in-delay" [ngClass]="{ 'slide-in': init }">
+    <div class="header-container">
+      <div class="header-text">Idea Collab - iOS</div>
+      <div class="subheader-text">Angular, Ionic Native, iOS, Android</div>
+    </div>
+    <div class="phone-container">
+      <div class="phone-frame">
+        <div class="gears-container gears-d3-canvas-p2"></div>
+        <div class="logos-container">
+          <div
+            *ngFor="let framework of frameworks"
+            (click)="openLinkNewTab(framework.url)"
+            class="logo {{ framework.className }}"
+          ></div>
+        </div>
+        <iframe
+          class="iframe-phone-viewport"
+          [class.iframe-phone-viewport-animate]="animateP2"
+          src="https://idea-collab.vercel.app"
+        ></iframe>
+      </div>
+      <br />
+      <button
+        (click)="animateP2 = !animateP2"
+        pButton
+        pRipple
+        type="button"
+        [label]="animateP2 ? 'Close' : 'Frameworks'"
+        class="p-button-raised p-button-info"
+      ></button>
+    </div>
+  </div> -->
+
+  <div class="laptop-wrap pre-slide-in-delay" [ngClass]="{ 'slide-in': init }">
+    <div class="laptop-frame">
+      <div class="phone-container">
+        <div class="phone-frame">
+          <div class="gears-container gears-d3-canvas-p3"></div>
+          <div class="logos-container">
+            <div
+              *ngFor="let framework of frameworks"
+              (click)="openLinkNewTab(framework.url)"
+              class="logo {{ framework.className }}"
+            ></div>
+          </div>
+          <iframe
+            class="iframe-phone-viewport"
+            [class.iframe-phone-viewport-animate-right]="animateP3"
+            src="https://idea-collab.vercel.app"
+          ></iframe>
+        </div>
+        <br />
+        <button
+          (click)="animateP3 = !animateP3"
+          pButton
+          pRipple
+          type="button"
+          [label]="animateP3 ? 'Close' : 'Frameworks'"
+          class="p-button-raised p-button-info"
+        ></button>
+      </div>
+    </div>
+    <div class="header-container">
+      <div class="header-text">Idea Collab&nbsp; | &nbsp;iOS</div>
+      <div class="subheader-text">Angular, Ionic Native, iOS, Android</div>
+    </div>
+  </div>
 </div>
 
-<div class="welcome-overlay" [ngClass]="{ 'remove-welcome': welcomeDone }">
+<!-- <div class="welcome-overlay" [ngClass]="{ 'remove-welcome': welcomeDone }">
   Welcome
-</div>
+</div> -->
