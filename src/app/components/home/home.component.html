@@ -49,6 +49,16 @@
           >Sight for Life Foundation</a
         >
       </div>
+      <div class="visit-button-container">
+        <button
+          pButton
+          pRipple
+          type="button"
+          label="Visit"
+          class="p-button-raised p-button-text"
+          (click)="window.open('https://ophthalmos.vercel.app', '_blank')"
+        ></button>
+      </div>
     </div>
   </div>
 
@@ -86,40 +96,6 @@
     </div>
   </div>
 
-  <!-- IDEA COLLAB IONIC -->
-  <!-- <div class="phone-wrap pre-slide-in-delay" [ngClass]="{ 'slide-in': init }">
-    <div class="header-container">
-      <div class="header-text">Idea Collab - iOS</div>
-      <div class="subheader-text">Angular, Ionic Native, iOS, Android</div>
-    </div>
-    <div class="phone-container">
-      <div class="phone-frame">
-        <div class="gears-container gears-d3-canvas-p2"></div>
-        <div class="logos-container">
-          <div
-            *ngFor="let framework of frameworks"
-            (click)="openLinkNewTab(framework.url)"
-            class="logo {{ framework.className }}"
-          ></div>
-        </div>
-        <iframe
-          class="iframe-phone-viewport"
-          [class.iframe-phone-viewport-animate]="animateP2"
-          src="https://idea-collab.vercel.app"
-        ></iframe>
-      </div>
-      <br />
-      <button
-        (click)="animateP2 = !animateP2"
-        pButton
-        pRipple
-        type="button"
-        [label]="animateP2 ? 'Close' : 'Frameworks'"
-        class="p-button-raised p-button-info"
-      ></button>
-    </div>
-  </div> -->
-
   <div class="laptop-wrap pre-slide-in-delay" [ngClass]="{ 'slide-in': init }">
     <div class="laptop-frame">
       <div class="phone-container">
@@ -155,7 +131,3 @@
     </div>
   </div>
 </div>
-
-<!-- <div class="welcome-overlay" [ngClass]="{ 'remove-welcome': welcomeDone }">
-  Welcome
-</div> -->

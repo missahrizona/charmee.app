@@ -14,6 +14,6 @@ import { RippleModule } from 'primeng/ripple';
   declarations: [AppComponent, HomeComponent],
   imports: [BrowserModule, AppRoutingModule, LayoutModule, ButtonModule],
   bootstrap: [AppComponent],
-  providers: [GlobalsService],
+  providers: [GlobalsService, { provide: Window, useValue: window }],
 })
 export class AppModule {}

@@ -7,7 +7,7 @@ import GearSet from './gears';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit, AfterViewInit {
-  constructor() {
+  constructor(public window: Window) {
     this.frameworks = [
       { className: 'angular', url: 'https://angular.io' },
       { className: 'nodejs', url: 'https://nodejs.org' },
