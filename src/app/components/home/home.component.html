@@ -1,5 +1,8 @@
 <div class="flex">
-  <div class="phone-wrap pre-slide-in" [ngClass]="{ 'slide-in': init }">
+  <div
+    class="phone-wrap pre-slide-in overlay scale-in-hor-right"
+    [ngClass]="{ 'slide-in': init }"
+  >
     <div class="header-container">
       <div class="header-text">Idea Collab</div>
       <div class="subheader-text">Angular, PrimeNG</div>
@@ -31,8 +34,12 @@
       ></button>
     </div>
   </div>
+  <div class="parallax-a"></div>
   <!-- OPHTHALMOS -->
-  <div class="laptop-wrap pre-slide-in-delay" [ngClass]="{ 'slide-in': init }">
+  <div
+    class="laptop-wrap pre-slide-in-delay overlay"
+    [ngClass]="{ 'slide-in': init }"
+  >
     <div class="laptop-frame">
       <div class="laptop-display">
         <iframe
@@ -56,14 +63,20 @@
           type="button"
           label="Visit"
           class="p-button-raised p-button-text"
+          style="color: black"
           (click)="window.open('https://ophthalmos.vercel.app', '_blank')"
         ></button>
       </div>
     </div>
   </div>
+  <!-- <div class="parallax-b"></div> -->
+  <div style="height: 40vh"></div>
 
   <!-- FAMILY APP -->
-  <div class="phone-wrap pre-slide-in-delay" [ngClass]="{ 'slide-in': init }">
+  <div
+    class="phone-wrap pre-slide-in-delay overlay"
+    [ngClass]="{ 'slide-in': init }"
+  >
     <div class="header-container">
       <div class="header-text">Fam-ily</div>
       <div class="subheader-text">Angular, Ionic Native, iOS, Android</div>
@@ -95,8 +108,11 @@
       ></button>
     </div>
   </div>
-
-  <div class="laptop-wrap pre-slide-in-delay" [ngClass]="{ 'slide-in': init }">
+  <div class="parallax-a"></div>
+  <div
+    class="laptop-wrap pre-slide-in-delay overlay"
+    [ngClass]="{ 'slide-in': init }"
+  >
     <div class="laptop-frame">
       <div class="phone-container">
         <div class="phone-frame">

@@ -1,0 +1,19 @@
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #d0368a #ffffff2a;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ffffff2a;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-image: linear-gradient(180deg, #dd98be 0%, #6abedf 99%);
+  box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
+}

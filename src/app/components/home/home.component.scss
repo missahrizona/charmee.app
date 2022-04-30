@@ -7,6 +7,7 @@
   overflow-y: auto;
   overflow-x: hidden;
   box-sizing: border-box !important;
+  perspective: 2px;
 }
 
 .remove-welcome {
@@ -287,4 +288,67 @@
 
 .header-container .visit-button-container {
   padding: 15px 0 0 0;
+}
+
+.overlay {
+  height: max-content !important;
+  z-index: 999;
+  -webkit-animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
+div.flex > div {
+  transform-style: preserve-3d;
+  position: relative;
+  background: #21212100;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.parallax {
+}
+.parallax-a::after {
+  content: " ";
+  position: absolute !important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 50vh;
+  transform: translateZ(-1px) scale(1.5);
+  background: linear-gradient(-45deg, #f5a9b8, #e73c7e, #15e1e4, #5bcefa);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  z-index: -1;
+}
+
+@-webkit-keyframes color-change {
+  0% {
+    background: #55cdfc;
+  }
+  100% {
+    background: #f7a8b8;
+  }
+}
+@keyframes color-change {
+  0% {
+    background: #55cdfc;
+  }
+  100% {
+    background: #f7a8b8;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
