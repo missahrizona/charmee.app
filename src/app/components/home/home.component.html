@@ -1,4 +1,4 @@
-<div class="flex">
+<div #content (scroll)="scrolledover($event)" class="flex content">
   <div
     class="phone-wrap pre-slide-in overlay scale-in-hor-right"
     [ngClass]="{ 'slide-in': init }"
@@ -182,3 +182,4 @@
   <div class="phone-wrap dark"></div>
   <div class="phone-wrap dark"></div>
 </div>
+<div #footer class="footer"></div>

@@ -9,6 +9,31 @@
   box-sizing: border-box !important;
   perspective: 2px;
 }
+.content {
+  min-height: 100%;
+  min-height: 100vh;
+  position: relative !important;
+  z-index: 1 !important;
+  -webkit-box-shadow: #000 0 7px 35px 0;
+  -moz-box-shadow: #000 0 7px 35px 0;
+  box-shadow: #000 0 7px 35px 0;
+}
+.footer {
+  padding: 25px 0;
+  font-size: 100px;
+  background-color: #121212;
+  color: #dcdcdc;
+  position: fixed;
+  z-index: -9000;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  background-image: url("../../../assets/images/girlcode.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
 .remove-welcome {
   display: none !important;
@@ -285,22 +310,22 @@
   }
 }
 .dark {
-  background: rgb(33, 33, 33) !important;
+  background: rgb(16, 16, 16) !important;
 }
 .light-end {
   background: rgb(255, 255, 255);
   background: linear-gradient(
     180deg,
     rgba(255, 255, 255, 1) 0%,
-    rgba(144, 144, 144, 1) 100%
+    rgba(136, 136, 136, 1) 100%
   ) !important;
 }
 .dark-begin {
-  background: rgb(33, 33, 33);
+  background: rgb(16, 16, 16);
   background: linear-gradient(
     180deg,
-    rgba(144, 144, 144, 1) 0%,
-    rgba(33, 33, 33, 1) 100%
+    rgba(136, 136, 136, 1) 0%,
+    rgba(16, 16, 16, 1) 100%
   ) !important;
 
   & .laptop-keyboard {
@@ -360,6 +385,8 @@ div.flex > div {
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   z-index: -1;
+  box-shadow: inset 0px 1px 8px rgb(0 0 0 / 8%),
+    inset 0px 3px 4px rgb(0 0 0 / 10%), inset 0px 1px 4px -1px rgb(0 0 0 / 10%);
 }
 
 @-webkit-keyframes color-change {
