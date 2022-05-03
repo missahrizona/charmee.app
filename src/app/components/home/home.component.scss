@@ -41,7 +41,7 @@
 
 .phone-frame {
   aspect-ratio: 0.48 / 1;
-  height: 600px;
+  width: 375px;
   border-width: 26px 10px 26px 10px;
   border-color: black;
   border-style: solid;
@@ -65,7 +65,7 @@
 
 .laptop-display {
   aspect-ratio: 1 / 0.699;
-  width: 50vw;
+  width: 75vw;
   border-width: 26px 10px 26px 10px;
   border-color: black;
   border-style: solid;
@@ -74,7 +74,7 @@
 
 .laptop-keyboard {
   height: 20px;
-  width: 55vw;
+  width: 80vw;
   background: black;
   border-radius: 20px;
   border-top: 1px solid rgb(49, 49, 49);
