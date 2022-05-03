@@ -146,4 +146,39 @@
       <div class="subheader-text">Angular, Ionic Native, iOS, Android</div>
     </div>
   </div>
+
+  <div class="phone-wrap light-end"></div>
+  <!-- api landing page -->
+  <div
+    class="laptop-wrap pre-slide-in-delay overlay flex-row-reverse dark-begin"
+    [ngClass]="{ 'slide-in': init }"
+  >
+    <div class="laptop-frame">
+      <div class="laptop-display">
+        <iframe
+          class="iframe-laptop-viewport"
+          src="https://girl-code-346204.uk.r.appspot.com/"
+        ></iframe>
+      </div>
+      <div class="laptop-keyboard"></div>
+    </div>
+    <div class="header-container">
+      <div class="header-text">Idea Collab API</div>
+      <div class="visit-button-container">
+        <button
+          pButton
+          pRipple
+          type="button"
+          label="Visit"
+          class="p-button-raised p-button-text"
+          style="color: black"
+          (click)="
+            window.open('https://girl-code-346204.uk.r.appspot.com/', '_blank')
+          "
+        ></button>
+      </div>
+    </div>
+  </div>
+  <div class="phone-wrap dark"></div>
+  <div class="phone-wrap dark"></div>
 </div>
