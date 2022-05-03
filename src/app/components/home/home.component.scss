@@ -65,7 +65,7 @@
 
 .laptop-display {
   aspect-ratio: 1 / 0.699;
-  width: 800px;
+  width: 50vw;
   border-width: 26px 10px 26px 10px;
   border-color: black;
   border-style: solid;
@@ -74,7 +74,7 @@
 
 .laptop-keyboard {
   height: 20px;
-  width: 900px;
+  width: 55vw;
   background: black;
   border-radius: 20px;
   border-top: 1px solid rgb(49, 49, 49);
@@ -122,7 +122,7 @@
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  padding: 10px 10% 10px 0;
+  //   padding: 10px 10% 10px 0;
   box-sizing: border-box;
   //   box-shadow: 0px 4px 5px 1px #343434;
 }
@@ -290,7 +290,7 @@
 
 .header-container {
   text-align: left;
-  margin: auto;
+  padding: 50px 0 50px 0;
   width: fit-content;
 }
 
@@ -307,6 +307,13 @@
 
   & button {
     color: rgba(255, 255, 255, 0.6) !important;
+  }
+}
+.flex-reverse-wrap {
+  flex-wrap: wrap-reverse !important;
+
+  & .header-container {
+    text-align: center !important;
   }
 }
 .dark {
@@ -366,7 +373,8 @@ div.flex > div {
   background: #21212100;
   height: 50vh;
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   align-items: center;
 }
 

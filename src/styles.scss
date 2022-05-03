@@ -45,3 +45,9 @@ body {
 .style-4 path {
   fill: #3299bb;
 }
+
+@media screen and (max-width: 1440px) {
+  .header-text {
+    font-size: 2.5rem !important;
+  }
+}
