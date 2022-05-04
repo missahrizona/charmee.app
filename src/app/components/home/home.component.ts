@@ -4,6 +4,7 @@ import {
   AfterViewInit,
   ViewChild,
   ElementRef,
+  AfterViewChecked,
 } from '@angular/core';
 import GearSet from './gears';
 
@@ -29,6 +30,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   @ViewChild('content') content!: ElementRef;
   @ViewChild('footer') footer!: ElementRef;
+  @ViewChild('footersibling') footersibling!: ElementRef;
 
   welcomeDone: boolean;
   animateP1: boolean;
@@ -56,10 +58,13 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.gearSet2 = new GearSet('.gears-d3-canvas-p2');
     this.gearSet3 = new GearSet('.gears-d3-canvas-p3');
 
+    setTimeout(() => {
+      let footerheight = this.footer.nativeElement.offsetHeight;
+      this.content.nativeElement.style.paddingBottom = `${footerheight}px`;
+    }, 500);
+
     this.footer.nativeElement.style.opacity = '0';
-    let footerheight = this.footer.nativeElement.clientHeight;
-    console.log(footerheight);
-    this.content.nativeElement.style.paddingBottom = `${footerheight}px`;
+    this.footersibling.nativeElement.style.opacity = '0';
   }
 
   openLinkNewTab(url: string) {
@@ -71,8 +76,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
     let total = evt.target.scrollHeight;
     if (distance / total >= 4 / 5) {
       this.footer.nativeElement.style.opacity = '1';
+      this.footersibling.nativeElement.style.opacity = '1';
     } else {
       this.footer.nativeElement.style.opacity = '0';
+      this.footersibling.nativeElement.style.opacity = '0';
     }
   }
 

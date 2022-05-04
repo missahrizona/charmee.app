@@ -1,6 +1,6 @@
-<div #content (scroll)="scrolledover($event)" class="flex content">
+<div #content (scroll)="scrolledover($event)" class="flex viewport">
   <div
-    class="phone-wrap pre-slide-in overlay scale-in-hor-right"
+    class="tile pre-slide-in overlay scale-in-hor-right"
     [ngClass]="{ 'slide-in': init }"
   >
     <div class="header-container">
@@ -34,10 +34,10 @@
       ></button>
     </div>
   </div>
-  <div class="parallax-a"></div>
+  <div class="parallax"></div>
   <!-- OPHTHALMOS -->
   <div
-    class="laptop-wrap pre-slide-in-delay flex-reverse-wrap overlay"
+    class="tile pre-slide-in-delay flex-reverse-wrap overlay"
     [ngClass]="{ 'slide-in': init }"
   >
     <div class="laptop-frame">
@@ -69,14 +69,10 @@
       </div>
     </div>
   </div>
-  <!-- <div class="parallax-b"></div> -->
   <div style="height: 40vh"></div>
 
   <!-- FAMILY APP -->
-  <div
-    class="phone-wrap pre-slide-in-delay overlay"
-    [ngClass]="{ 'slide-in': init }"
-  >
+  <div class="tile pre-slide-in-delay overlay" [ngClass]="{ 'slide-in': init }">
     <div class="header-container">
       <div class="header-text">Fam-ily</div>
       <div class="subheader-text">Angular, Ionic Native, iOS, Android</div>
@@ -108,11 +104,8 @@
       ></button>
     </div>
   </div>
-  <div class="parallax-a"></div>
-  <div
-    class="laptop-wrap pre-slide-in-delay overlay"
-    [ngClass]="{ 'slide-in': init }"
-  >
+  <div class="parallax"></div>
+  <div class="tile pre-slide-in-delay overlay" [ngClass]="{ 'slide-in': init }">
     <div class="laptop-frame">
       <div class="phone-container">
         <div class="phone-frame">
@@ -147,10 +140,10 @@
     </div>
   </div>
 
-  <div class="phone-wrap light-end"></div>
+  <div class="tile light-end"></div>
   <!-- api landing page -->
   <div
-    class="laptop-wrap pre-slide-in-delay overlay flex-row-reverse flex-reverse-wrap dark-begin"
+    class="tile pre-slide-in-delay overlay flex-row-reverse flex-reverse-wrap dark-begin"
     [ngClass]="{ 'slide-in': init }"
   >
     <div class="laptop-frame">
@@ -179,7 +172,10 @@
       </div>
     </div>
   </div>
-  <div class="phone-wrap dark"></div>
-  <div class="phone-wrap dark"></div>
+  <div class="tile dark"></div>
+  <div class="tile dark"></div>
 </div>
-<div #footer class="footer">Lass Logic</div>
+<div #footer class="footer footer-overlay">Charmee.app</div>
+<div #footersibling class="footer footer-underlay">
+  <div class="footer-text">Charmee.app</div>
+</div>
