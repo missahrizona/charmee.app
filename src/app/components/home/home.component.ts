@@ -4,9 +4,7 @@ import {
   AfterViewInit,
   ViewChild,
   ElementRef,
-  AfterViewChecked,
 } from '@angular/core';
-import GearSet from './gears';
 
 @Component({
   selector: 'app-home',
@@ -30,7 +28,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   @ViewChild('content') content!: ElementRef;
   @ViewChild('footer') footer!: ElementRef;
-  @ViewChild('footersibling') footersibling!: ElementRef;
+  @ViewChild('footeroverlay') footeroverlay!: ElementRef;
+  @ViewChild('charmeesvg') charmeesvg!: ElementRef;
 
   welcomeDone: boolean;
   animateP1: boolean;
@@ -38,9 +37,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
   animateP3: boolean;
   frameworks: any[];
   init: boolean;
-  gearSet1?: GearSet;
-  gearSet2?: GearSet;
-  gearSet3?: GearSet;
 
   ngOnInit(): void {
     (async () => {
@@ -54,9 +50,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       this.init = true;
     });
-    this.gearSet1 = new GearSet('.gears-d3-canvas-p1');
-    this.gearSet2 = new GearSet('.gears-d3-canvas-p2');
-    this.gearSet3 = new GearSet('.gears-d3-canvas-p3');
 
     setTimeout(() => {
       let footerheight = this.footer.nativeElement.offsetHeight;
@@ -64,7 +57,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }, 500);
 
     this.footer.nativeElement.style.opacity = '0';
-    this.footersibling.nativeElement.style.opacity = '0';
   }
 
   openLinkNewTab(url: string) {
@@ -74,13 +66,16 @@ export class HomeComponent implements OnInit, AfterViewInit {
   scrolledover(evt: any) {
     let distance = evt.target.scrollTop;
     let total = evt.target.scrollHeight;
+
     if (distance / total >= 4 / 5) {
       this.footer.nativeElement.style.opacity = '1';
-      this.footersibling.nativeElement.style.opacity = '1';
     } else {
       this.footer.nativeElement.style.opacity = '0';
-      this.footersibling.nativeElement.style.opacity = '0';
     }
+  }
+
+  toggleLogo(evt: any) {
+    this.charmeesvg.nativeElement.classList.toggle('active');
   }
 
   async delay(ms: number) {
