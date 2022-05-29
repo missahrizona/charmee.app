@@ -49,33 +49,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.init = true;
+      this.charmeesvg.nativeElement.classList.add('active');
     });
-
-    setTimeout(() => {
-      let footerheight = this.footer.nativeElement.offsetHeight;
-      this.content.nativeElement.style.paddingBottom = `${footerheight}px`;
-    }, 500);
-
-    this.footer.nativeElement.style.opacity = '0';
   }
+
+  scrolledover(event: any) {}
 
   openLinkNewTab(url: string) {
     window.open(url, '_blank');
-  }
-
-  scrolledover(evt: any) {
-    let distance = evt.target.scrollTop;
-    let total = evt.target.scrollHeight;
-
-    if (distance / total >= 4 / 5) {
-      this.footer.nativeElement.style.opacity = '1';
-    } else {
-      this.footer.nativeElement.style.opacity = '0';
-    }
-  }
-
-  toggleLogo(evt: any) {
-    this.charmeesvg.nativeElement.classList.toggle('active');
   }
 
   async delay(ms: number) {

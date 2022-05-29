@@ -1,181 +1,3 @@
-<div #content (scroll)="scrolledover($event)" class="flex viewport">
-  <div class="tile pre-slide-in overlay" [ngClass]="{ 'slide-in': init }">
-    <div class="header-container">
-      <div class="header-text">Idea Collab</div>
-      <div class="subheader-text">Angular, PrimeNG</div>
-    </div>
-    <div class="device-content">
-      <div class="phone-display">
-        <div class="logos-container">
-          <div
-            *ngFor="let framework of frameworks"
-            (click)="openLinkNewTab(framework.url)"
-            class="logo {{ framework.className }}"
-          ></div>
-        </div>
-        <iframe
-          class="iframe-phone-viewport"
-          [class.iframe-phone-viewport-animate]="animateP1"
-          src="https://ideacollab.vercel.app"
-        ></iframe>
-      </div>
-      <br />
-      <button
-        (click)="animateP1 = !animateP1"
-        pButton
-        pRipple
-        type="button"
-        [label]="animateP1 ? 'Close' : 'Frameworks'"
-        class="p-button-raised p-button-info"
-      ></button>
-    </div>
-  </div>
-  <div class="parallax"></div>
-  <!-- OPHTHALMOS -->
-  <div
-    class="tile pre-slide-in-delay flex-row-reverse overlay"
-    [ngClass]="{ 'slide-in': init }"
-  >
-    <div class="header-container text-right">
-      <div class="header-text">Ophthalmos</div>
-      <div class="subheader-text">
-        <a href="https://www.sightforlifefoundation.com/" target="_blank"
-          >Sight for Life Foundation</a
-        >
-      </div>
-      <div class="visit-button-container">
-        <button
-          pButton
-          pRipple
-          type="button"
-          label="Visit"
-          class="p-button-raised p-button-text"
-          style="color: black"
-          (click)="window.open('https://ophthalmos.vercel.app', '_blank')"
-        ></button>
-      </div>
-    </div>
-    <div class="device-content">
-      <div class="laptop-display">
-        <iframe
-          class="iframe-laptop-viewport"
-          src="https://ophthalmos.vercel.app/"
-        ></iframe>
-      </div>
-      <div class="laptop-keyboard"></div>
-    </div>
-  </div>
-  <div style="height: 40vh"></div>
-
-  <!-- FAMILY APP -->
-  <div class="tile pre-slide-in-delay overlay" [ngClass]="{ 'slide-in': init }">
-    <div class="header-container">
-      <div class="header-text">Fam-ily</div>
-      <div class="subheader-text">Angular, Ionic Native, iOS, Android</div>
-    </div>
-    <div class="device-content">
-      <div class="phone-display">
-        <div class="logos-container">
-          <div
-            *ngFor="let framework of frameworks"
-            (click)="openLinkNewTab(framework.url)"
-            class="logo {{ framework.className }}"
-          ></div>
-        </div>
-        <iframe
-          class="iframe-phone-viewport"
-          [class.iframe-phone-viewport-animate]="animateP2"
-          src="https://fam-ily.vercel.app"
-        ></iframe>
-      </div>
-      <br />
-      <button
-        (click)="animateP2 = !animateP2"
-        pButton
-        pRipple
-        type="button"
-        [label]="animateP2 ? 'Close' : 'Frameworks'"
-        class="p-button-raised p-button-info"
-      ></button>
-    </div>
-  </div>
-
-  <div class="parallax"></div>
-
-  <!-- Idea collab ionic -->
-  <div
-    class="tile flex-row-reverse pre-slide-in-delay overlay"
-    [ngClass]="{ 'slide-in': init }"
-  >
-    <div class="header-container text-right">
-      <div class="header-text">Idea Collab&nbsp; | &nbsp;iOS</div>
-      <div class="subheader-text">Angular, Ionic Native, iOS, Android</div>
-    </div>
-
-    <div class="device-content">
-      <div class="phone-display">
-        <div class="logos-container">
-          <div
-            *ngFor="let framework of frameworks"
-            (click)="openLinkNewTab(framework.url)"
-            class="logo {{ framework.className }}"
-          ></div>
-        </div>
-        <iframe
-          class="iframe-phone-viewport"
-          [class.iframe-phone-viewport-animate-right]="animateP3"
-          src="https://idea-collab.vercel.app"
-        ></iframe>
-      </div>
-      <br />
-      <button
-        (click)="animateP3 = !animateP3"
-        pButton
-        pRipple
-        type="button"
-        [label]="animateP3 ? 'Close' : 'Frameworks'"
-        class="p-button-raised p-button-info"
-      ></button>
-    </div>
-  </div>
-
-  <div class="tile light-end"></div>
-
-  <!-- api landing page -->
-  <div
-    class="tile pre-slide-in-delay overlay dark-begin"
-    [ngClass]="{ 'slide-in': init }"
-  >
-    <div class="header-container">
-      <div class="header-text">Idea Collab API</div>
-      <div class="visit-button-container">
-        <button
-          pButton
-          pRipple
-          type="button"
-          label="Visit"
-          class="p-button-raised p-button-text"
-          style="color: black"
-          (click)="
-            window.open('https://girl-code-346204.uk.r.appspot.com/', '_blank')
-          "
-        ></button>
-      </div>
-    </div>
-    <div class="device-content">
-      <div class="laptop-display">
-        <iframe
-          class="iframe-laptop-viewport"
-          src="https://girl-code-346204.uk.r.appspot.com/"
-        ></iframe>
-      </div>
-      <div class="laptop-keyboard"></div>
-    </div>
-  </div>
-  <div class="tile dark"></div>
-  <div class="tile dark"></div>
-</div>
-
 <div #footer class="footer">
   <svg
     #charmeesvg
@@ -390,11 +212,164 @@
     </g>
   </svg>
 </div>
-<div
-  #footeroverlay
-  (mouseenter)="toggleLogo($event)"
-  (mouseleave)="toggleLogo($event)"
-  class="footer footer-overlay"
->
-  charmee
+
+<div (scroll)="scrolledover($event)" class="flex viewport">
+  <div class="tile-phone">
+    <div class="header-container">
+      <div class="header-text">Idea Collab</div>
+      <div class="subheader-text">Angular, PrimeNG</div>
+    </div>
+    <div class="device-content">
+      <div class="phone-display">
+        <div class="logos-container">
+          <div
+            *ngFor="let framework of frameworks"
+            (click)="openLinkNewTab(framework.url)"
+            class="logo {{ framework.className }}"
+          ></div>
+        </div>
+        <iframe
+          class="iframe-phone-viewport"
+          [class.iframe-phone-viewport-animate]="animateP1"
+          src="https://ideacollab.vercel.app"
+        ></iframe>
+      </div>
+      <br />
+      <button
+        (click)="animateP1 = !animateP1"
+        pButton
+        pRipple
+        type="button"
+        [label]="animateP1 ? 'Close' : 'Frameworks'"
+        class="p-button-raised p-button-info"
+      ></button>
+    </div>
+  </div>
+  <!-- OPHTHALMOS -->
+  <div class="tile-laptop flex-row-reverse">
+    <div class="header-container text-right">
+      <div class="header-text">Ophthalmos</div>
+      <div class="subheader-text">
+        <a href="https://www.sightforlifefoundation.com/" target="_blank"
+          >Sight for Life Foundation</a
+        >
+      </div>
+      <div class="visit-button-container">
+        <button
+          pButton
+          pRipple
+          type="button"
+          label="Visit"
+          class="p-button-raised p-button-text"
+          style="color: black"
+          (click)="window.open('https://ophthalmos.vercel.app', '_blank')"
+        ></button>
+      </div>
+    </div>
+    <div class="device-content">
+      <div class="laptop-display">
+        <iframe
+          class="iframe-laptop-viewport"
+          src="https://ophthalmos.vercel.app/"
+        ></iframe>
+      </div>
+      <div class="laptop-keyboard"></div>
+    </div>
+  </div>
+
+  <!-- FAMILY APP -->
+  <div class="tile-phone">
+    <div class="header-container">
+      <div class="header-text">Fam-ily</div>
+      <div class="subheader-text">Angular, Ionic Native, iOS, Android</div>
+    </div>
+    <div class="device-content">
+      <div class="phone-display">
+        <div class="logos-container">
+          <div
+            *ngFor="let framework of frameworks"
+            (click)="openLinkNewTab(framework.url)"
+            class="logo {{ framework.className }}"
+          ></div>
+        </div>
+        <iframe
+          class="iframe-phone-viewport"
+          [class.iframe-phone-viewport-animate]="animateP2"
+          src="https://fam-ily.vercel.app"
+        ></iframe>
+      </div>
+      <br />
+      <button
+        (click)="animateP2 = !animateP2"
+        pButton
+        pRipple
+        type="button"
+        [label]="animateP2 ? 'Close' : 'Frameworks'"
+        class="p-button-raised p-button-info"
+      ></button>
+    </div>
+  </div>
+
+  <!-- Idea collab ionic -->
+  <div class="tile-phone tile-reverse">
+    <div class="header-container text-right">
+      <div class="header-text">Idea Collab&nbsp; | &nbsp;iOS</div>
+      <div class="subheader-text">Angular, Ionic Native, iOS, Android</div>
+    </div>
+
+    <div class="device-content">
+      <div class="phone-display">
+        <div class="logos-container">
+          <div
+            *ngFor="let framework of frameworks"
+            (click)="openLinkNewTab(framework.url)"
+            class="logo {{ framework.className }}"
+          ></div>
+        </div>
+        <iframe
+          class="iframe-phone-viewport"
+          [class.iframe-phone-viewport-animate-right]="animateP3"
+          src="https://idea-collab.vercel.app"
+        ></iframe>
+      </div>
+      <br />
+      <button
+        (click)="animateP3 = !animateP3"
+        pButton
+        pRipple
+        type="button"
+        [label]="animateP3 ? 'Close' : 'Frameworks'"
+        class="p-button-raised p-button-info"
+      ></button>
+    </div>
+  </div>
+
+  <!-- api landing page -->
+  <div class="tile-laptop">
+    <div class="header-container">
+      <div class="header-text">Idea Collab API</div>
+      <div class="visit-button-container">
+        <button
+          pButton
+          pRipple
+          type="button"
+          label="Visit"
+          class="p-button-raised p-button-text"
+          style="color: black"
+          (click)="
+            window.open('https://girl-code-346204.uk.r.appspot.com/', '_blank')
+          "
+        ></button>
+      </div>
+    </div>
+    <div class="device-content">
+      <div class="laptop-display">
+        <iframe
+          class="iframe-laptop-viewport"
+          src="https://girl-code-346204.uk.r.appspot.com/"
+        ></iframe>
+      </div>
+      <div class="laptop-keyboard"></div>
+    </div>
+  </div>
 </div>
