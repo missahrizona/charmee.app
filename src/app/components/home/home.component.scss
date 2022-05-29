@@ -7,7 +7,7 @@
   overflow-y: auto;
   overflow-x: hidden;
   box-sizing: border-box !important;
-  margin-top: calc(5vw + 5vh) !important;
+  margin-top: calc(4vw + 4vh) !important;
 }
 .viewport {
 }
@@ -28,7 +28,7 @@
 .footer > svg {
   z-index: 100;
   width: 33% !important;
-  height: calc(5vw + 5vh) !important;
+  height: calc(4vw + 4vh) !important;
 }
 
 .phone-display {
@@ -126,6 +126,9 @@ div.flex > div {
 .tile-laptop {
   padding: 20px !important;
   justify-content: center !important;
+}
+.tile-last {
+  margin-bottom: 100px;
 }
 
 .phone-wrap {

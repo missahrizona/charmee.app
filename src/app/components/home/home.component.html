@@ -310,42 +310,8 @@
     </div>
   </div>
 
-  <!-- Idea collab ionic -->
-  <div class="tile-phone tile-reverse">
-    <div class="header-container text-right">
-      <div class="header-text">Idea Collab&nbsp; | &nbsp;iOS</div>
-      <div class="subheader-text">Angular, Ionic Native, iOS, Android</div>
-    </div>
-
-    <div class="device-content">
-      <div class="phone-display">
-        <div class="logos-container">
-          <div
-            *ngFor="let framework of frameworks"
-            (click)="openLinkNewTab(framework.url)"
-            class="logo {{ framework.className }}"
-          ></div>
-        </div>
-        <iframe
-          class="iframe-phone-viewport"
-          [class.iframe-phone-viewport-animate-right]="animateP3"
-          src="https://idea-collab.vercel.app"
-        ></iframe>
-      </div>
-      <br />
-      <button
-        (click)="animateP3 = !animateP3"
-        pButton
-        pRipple
-        type="button"
-        [label]="animateP3 ? 'Close' : 'Frameworks'"
-        class="p-button-raised p-button-info"
-      ></button>
-    </div>
-  </div>
-
   <!-- api landing page -->
-  <div class="tile-laptop">
+  <div class="tile-laptop tile-last">
     <div class="header-container">
       <div class="header-text">Idea Collab API</div>
       <div class="visit-button-container">
